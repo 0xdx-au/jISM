@@ -1,0 +1,12 @@
+mkdir -p feed/data
+cat > feed/data/controls.json << 'EOF'
+{
+  "controls": [
+    {
+      "id": "TEST001",
+      "title": "Test Control",
+      "description": "This is a test control for development"
+    }
+  ]
+}
+EOF

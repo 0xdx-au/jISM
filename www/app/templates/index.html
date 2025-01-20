@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>OSCAL Viewer</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>jISM Controls</title>
 </head>
 <body>
-    <h1>OSCAL Controls</h1>
+    <h1>ISM Controls Viewer</h1>
     <div id="controls"></div>
+    <script>
+        fetch('/api/controls')
+            .then(response => response.json())
+            .then(data => {
+                const controlsDiv = document.getElementById('controls');
+                data.controls.forEach(control => {
+                    controlsDiv.innerHTML += `<h2>${control.title}</h2><p>${control.description}</p>`;
+                });
+            });
+    </script>
 </body>
 </html>
