@@ -39,6 +39,12 @@ docker-compose up -d
 # Now go get wet at http://localhost:8080
 ```
 
+## Architecture
+- Web Application (www/): This is where the Flask application resides. It serves the web interface and API endpoints.
+- OSCAL Feed Handler (feed/): This component fetches and processes the OSCAL feed data.
+- Database (db/): This component sets up a PostgreSQL database to store processed OSCAL data.
+- Docker Compose: Manages the orchestration of the three containers.
+
 ## Why CentOS CIS Level 2?
 Why use protection? Because it's better to be safe than sorry! 🎯 (seriously just because)
 
