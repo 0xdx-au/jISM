@@ -1,3 +1,5 @@
 FROM postgres:13
 
-COPY init/ /docker-entrypoint-initdb.d/
+ENV POSTGRES_DB=ism
+ENV POSTGRES_USER=ism
+ENV POSTGRES_PASSWORD=ism
