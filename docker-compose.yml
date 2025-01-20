@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  web:
+    build: ./www
+    ports:
+      - "8080:80"
+    environment:
+      - FLASK_ENV=production
+    depends_on:
+      - feed
+      - db
+
+  feed:
+    build: ./feed
+    environment:
+      - OSCAL_FEED_URL=https://raw.githubusercontent.com/AustralianCyberSecurityCentre/ism-oscal/main/controls.json
+
+  db:
+    build: ./db
+    environment:
+      - POSTGRES_USER=myuser
+      - POSTGRES_PASSWORD=mypassword
+      - POSTGRES_DB=mydb
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
